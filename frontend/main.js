@@ -1,7 +1,11 @@
+// HTML elements =======================================================
+
 const formElement = $('form');
 const nameInputElement = $('#name-input');
 const scoreInputElement = $('#score-input');
 const scoresElement = $('.scores');
+
+// Helpers =============================================================
 
 const renderScores = (scores) => {
   scoresElement.html('');
@@ -37,9 +41,27 @@ const addScore = () => {
   }
 };
 
+const showError = (message) => {
+  $('body').html(`
+    <div class="error">
+      Error: ${message}
+    </div>
+  `);
+};
+
+const refreshPage = () => {
+  setTimeout(() => window.location.reload(), 3000);
+};
+
 // Web socket ==========================================================
 
 const socket = io();
+socket.on("connect_error", () => {
+  console.log('bad');
+  showError('could not connect to leaderboard server. Retrying...');
+  refreshPage();
+});
+socket.on('disconnect', () => refreshPage());
 socket.on('scores', (data) => renderScores(data));
 
 // Event handlers ======================================================

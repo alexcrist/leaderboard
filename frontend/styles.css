@@ -1,0 +1,7 @@
+.error {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 20px;
+  color: red;
+}
