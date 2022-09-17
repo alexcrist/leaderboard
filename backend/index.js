@@ -16,8 +16,8 @@ const emitScores = () => {
   io.emit('scores', scores);
 };
 
-app.use(express.static('../frontend'));
-app.get('/', express.static('../frontend/index.html'));
+app.use(express.static('frontend'));
+app.get('/', express.static('frontend/index.html'));
 
 app.get('/addScore', (req, res) => {
   const { name, score } = req.query;

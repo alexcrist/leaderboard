@@ -1,3 +1,7 @@
+// Options =============================================================
+
+const SHOW_SCORE_INPUTS = true;
+
 // HTML elements =======================================================
 
 const formElement = $('form');
@@ -35,9 +39,9 @@ const addScore = () => {
   const name = nameInputElement.val();
   const score = scoreInputElement.val();
   if (areInputsValid(name, score)) {
-    fetch(`/addScore?name=${name}&score=${score}`);
+    fetch(`/addScore?name=${name}&score=${Number(score)}`);
   } else {
-    alert('Invalid inputs.');
+    alert('Invalid name or score.');
   }
 };
 
@@ -70,3 +74,9 @@ formElement.on('submit', (event) => {
   event.preventDefault();
   addScore();
 });
+
+// Hide score inputs ===================================================
+
+if (!SHOW_SCORE_INPUTS) {
+  formElement.remove();
+}

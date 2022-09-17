@@ -9,13 +9,24 @@
 </head>
 <body>
 
-  <h1>Scores</h1>
+  <div class="header">
+    <div class="icon-container">
+      <div class="icon"></div>
+    </div>
+    <h1>Skee - ball Leaderboard</h1>
+  </div>
   <div class="scores"></div>
 
   <form>
-    <input id="name-input" type="text" />
-    <input id="score-input" type="number" />
-    <input type="submit" />
+    <div>
+    <label>Name</label>
+    <input id="name-input" type="text" autocomplete="off" />
+  </div>
+  <div>
+    <label>Score</label>
+    <input id="score-input" type="number" autocomplete="off" />
+  </div>
+    <input type="submit" value="New score" />
   </form>
 
   <script src="dependencies/socket.io.min.js"></script>

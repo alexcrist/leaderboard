@@ -1,3 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Kanit:wght@500&display=swap');
+
+:root {
+  --heading-text-color: #fff;
+  --heading-bg-color-1: #B52538;
+  --heading-bg-color-2: #B52538;
+  --heading-bg-color-3: #F24A4F;
+
+  --heading-icon-size: 5vw;
+  --heading-text-size: 2.8vw;
+
+  --score-bg-color-1: #B52538;
+  --score-bg-color-2: #F24A4F;
+
+  --score-text-color: #fff;
+  --score-font-size: 1.5vw;
+
+  --inputs-bg-color-1: #F24A4F;
+  --inputs-bg-color-2: #F24A4F;
+  --inputs-btn-color: #171717;
+  --inputs-text-color: #fff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Kanit', sans-serif;
+  background-image: url(assets/skeeball-photo.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(90deg, var(--heading-bg-color-1) 0%, var(--heading-bg-color-2) 6%, var(--heading-bg-color-3) 100%);
+  margin: 1vw 20vw;
+  opacity: 0.95;
+}
+
+.icon-container {
+  padding: 0.5vw 1vw;
+  background-color: var(--heading-bg-color-1);
+}
+
+.icon {
+  width: var(--heading-icon-size);
+  height: var(--heading-icon-size);
+  background-color: var(--heading-text-color);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-mask-image: url(assets/skeeball-icon.png);
+  -webkit-mask-size: var(--heading-icon-size);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+h1 {
+  padding: 0.5vw 1vw;
+  font-family: 'Bungee Shade', cursive;
+  color: var(--heading-text-color);
+  font-size: var(--heading-text-size);
+  margin: 0;
+  display: inline-block;
+}
+
+.score-container {
+  display: flex;
+  align-items: center;
+  opacity: 0.95;
+  margin: 0.25vw 20vw;
+  justify-content: space-between;
+  padding: 0.5vw 1vw;
+  background: linear-gradient(90deg, var(--score-bg-color-1) 0%, var(--score-bg-color-2) 100%);
+}
+
+.name {
+  font-size: var(--score-font-size);
+  color: var(--score-text-color);
+}
+
+.score {
+  font-size: var(--score-font-size);
+  color: var(--score-text-color);
+}
+
+form {
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  left: 15vw;
+  right: 15vw;
+  padding: 1vw 2vw;
+  align-items: center;
+  justify-content: space-around;
+  background: linear-gradient(90deg, var(--inputs-bg-color-1) 0%, var(--inputs-bg-color-2) 100%);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+}
+
+label {
+  margin-right: 0.5vw;
+  color: var(--inputs-text-color);
+}
+
+input {
+  margin-right: 2vw;
+}
+
+input[type=submit] {
+  background-color: var(--inputs-btn-color);
+  color: var(--inputs-text-color);
+  border: none;
+  padding: 0.5vw 1vw;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+input[type=submit]:hover {
+  opacity: 0.5;
+}
+
 .error {
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
