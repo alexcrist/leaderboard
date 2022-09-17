@@ -1,6 +1,6 @@
 # Leaderboard
 
-A web application leaderboard.
+A web application leaderboard
 
 ## Requirements
 
@@ -10,6 +10,6 @@ A web application leaderboard.
 
 First, install dependencies with `npm install`
 
-To start the application, run `npm start`.
+To start the application, run `npm start`
 
 To erase the database, run `npm run wipe-database`
