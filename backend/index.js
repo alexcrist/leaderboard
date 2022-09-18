@@ -26,8 +26,16 @@ app.get('/addScore', (req, res) => {
   res.sendStatus(200);
 });
 
+app.get('/removeScore', (req, res) => {
+  console.log('route');
+  const { name, score } = req.query;
+  database.removeScore(name, score);
+  emitScores();
+  res.sendStatus(200);
+});
+
 io.on('connection', () => emitScores());
 
 server.listen(PORT, () => {
   console.log('Express server running...');
-}); 
+});

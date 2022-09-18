@@ -14,7 +14,7 @@ const scoresElement = $('.scores');
 const renderScores = (scores) => {
   scoresElement.html('');
   for (const { name, score } of scores) {
-    scoresElement.append(`
+    const scoreContainer = $(`
       <div class="score-container">
         <div class="name">
           ${name}
@@ -24,6 +24,13 @@ const renderScores = (scores) => {
         </div>
       </div>
     `);
+    scoreContainer.on('click', () => {
+      const result = window.confirm(`Delete this score of ${name} with ${score} points?`);
+      if (result) {
+        removeScore(name, score);
+      }
+    });
+    scoresElement.append(scoreContainer);
   }
 };
 
@@ -43,6 +50,10 @@ const addScore = () => {
   } else {
     alert('Invalid name or score.');
   }
+};
+
+const removeScore = (name, score) => {
+  fetch(`/removeScore?name=${name}&score=${score}`);
 };
 
 const showError = (message) => {
