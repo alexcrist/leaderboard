@@ -99,6 +99,7 @@ form {
   justify-content: space-around;
   background: linear-gradient(90deg, var(--inputs-bg-color-1) 0%, var(--inputs-bg-color-2) 100%);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+  transition: 300ms all;
 }
 
 label {

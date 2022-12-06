@@ -1,6 +1,6 @@
 // Options =============================================================
 
-const SHOW_SCORE_INPUTS = true;
+const SECONDS_BEFORE_HIDING_SCORE_INPUTS = 5;
 
 // HTML elements =======================================================
 
@@ -84,10 +84,26 @@ socket.on('scores', (data) => renderScores(data));
 formElement.on('submit', (event) => {
   event.preventDefault();
   addScore();
+  formElement.trigger('reset');
 });
 
 // Hide score inputs ===================================================
 
-if (!SHOW_SCORE_INPUTS) {
-  formElement.remove();
-}
+let secondsInactive = 0;
+
+setInterval(() => {
+  secondsInactive++;
+  if (secondsInactive > SECONDS_BEFORE_HIDING_SCORE_INPUTS) {
+    formElement.css('bottom', '-100px');
+  }
+}, 1000);
+
+document.addEventListener('mousemove', () => {
+  secondsInactive = 0;
+  formElement.css('bottom', '0');
+});
+
+document.addEventListener('keydown', () => {
+  secondsInactive = 0;
+  formElement.css('bottom', '0');
+});
